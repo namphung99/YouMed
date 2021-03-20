@@ -708,7 +708,6 @@
 
 .app__container{
     margin-top: 160px;
-    background-color: #fff;
 }
 
 .app__content{
@@ -907,7 +906,7 @@
 /* footer */
 
 .footer{
-    margin-top: 150px;
+    margin-top: 80px;
     background-color: var(--background-color);
 }
 
