@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/gridSystem.css">
+    <link rel="stylesheet" href="./assets/css/reponsive.css">
+    <link rel="stylesheet" href="./assets/css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap&subset=vietnamese"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./assets/fonts/fontawesome-free-5.12.1-web/css/all.min.css">
+
+    <title>Nurses</title>
+</head>
+
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="container">
+                <nav class="header__navbar">
+                    <a href="/" class="header__logo-link">
+                        <div class="header__logo">
+                            <img src="./assets/img/logoHospital.png" alt="" class="header__logo-img">
+                        </div>
+                    </a>
+                    <div class="content__search">
+                        <div class="content__search-input-wrap">
+                            <input type="text" name="valueSearch" class="content__search-input"
+                                placeholder="Tra cứu thông tin">
+                        </div>
+                        <div class="content__search-select">
+                            <div class="select-option"><a href="nurses.html">Y Tá</a></div>
+                            <ul class="content__search-option">
+                                <li class="content__search-option-item"><a href="doctors.html">Bác Sĩ</a></li>
+                                <li class="content__search-option-item"><a href="patient.html">Bệnh Nhân</a></li>
+                                <li class="content__search-option-item"><a href="medicine.html">Thuốc</a></li>
+                            </ul>
+                        </div>
+                        <button class="content__search-btn" onclick="search()">
+                            <i class="content__search-btn-icon fas fa-search"></i>
+                        </button>
+                    </div>
+                    <ul class="header__navbar-list">
+                        <li style="margin-right: 32px;" class="header__navbar-item">
+                            <a href="" class="header__navbar-item-link">
+                                <i class="header__navbar-icon fas fa-chart-bar"></i>
+                                Thống kê
+                            </a>
+                            <ul class="thong-ke">
+                                <li class="thong-ke-item">
+                                    <a href="Luong.html">Xem Lương</a>
+                                </li>
+                                <li class="thong-ke-item"><a href="BenhT7.html">Bệnh mắc phải 7/2020</a></li>
+                            </ul>
+                        </li>
+                        <li class="header__navbar-item">
+                            <div style="display:flex">
+                                <span>Doanh Thu: </span>
+                                <span style="margin-left:6px;" class="doanh-thu-title"></span>
+                                <span style="margin-left:2px;">đ</span>
+                            </div>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- <div class="header-with-search">
+                </div> -->
+            </div>
+        </header>
+
+        <!-- Logo with search -->
+
+        <div class="app__container">
+            <div class="app__content">
+                <div class="container">
+                    <div class="content__table">
+
+                        <!-- Nurse -->
+                        <!-- style = "display:none;" -->
+
+                        <div class="nurses">
+
+                            <div id="form-table__id" class="form-table__nurses">
+                                <div class="form-table__row">
+                                    <div class="form-table__column column-nurse form-table__column--id">
+                                        <span style="font-weight: bold;">ID</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse form-table__column--ten">
+                                        <span style="font-weight: bold;">Tên</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse form-table__column--cmt">
+                                        <span style="font-weight: bold;">CMT</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse form-table__column--ngaySinh">
+                                        <span style="font-weight: bold;">Ngày Sinh</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse form-table__column--diaChi">
+                                        <span style="font-weight: bold;">Địa Chỉ</span>
+                                    </div>
+
+                                    <div class="form-table__column column-nurse form-table__column--thamNien">
+                                        <span style="font-weight: bold;">Thâm Niên</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse form-table__column--trinhDo">
+                                        <span style="font-weight: bold;">Trình Độ</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse form-table__column--sdt">
+                                        <span style="font-weight: bold;">Số điện thoại</span>
+                                    </div>
+                                    <div class="form-table__column column-nurse">
+                                        <span style="font-weight: bold;">Chỉnh Sửa</span>
+                                    </div>
+                                </div>
+
+                                <div class="form-table__nurses-content">
+
+                                </div>
+                            </div>
+
+                            <div class="empty-data" style="display: none;">
+                                <h3 class="empty-data--text"> Hiện tại không có dữ liệu!!!</h3>
+                                <p class="empty-data--add"> thêm dữ liệu tại đây</p>
+                            </div>
+                            <button class="addBtn btn">Thêm y tá</button>
+                            <div style="display:none;" class="task-form">
+                                <div class="task-form__column">
+                                    <label for="">Tên Y tá: </label>
+                                    <input type="text" name="ten">
+                                </div>
+                                <div class="task-form__column">
+                                    <label for="">CMT: </label>
+                                    <input type="text" name="cmt">
+                                </div>
+                                <div class="task-form__column">
+                                    <label for="">Ngày sinh: </label>
+                                    <input type="text" name="ngaySinh" placeholder="yy-mm-dd">
+                                </div>
+                                <div class="task-form__column">
+                                    <label for="">Địa chỉ: </label>
+                                    <input type="text" name="diaChi">
+                                </div>
+                                <div class="task-form__column">
+                                    <label for="">Thâm niên: </label>
+                                    <input type="text" name="thamNien">
+                                </div>
+                                <div class="task-form__column">
+                                    <label for="">Trình độ đào tạo: </label>
+                                    <input type="text" name="trinhDo">
+                                </div>
+                                <div class="task-form__column">
+                                    <label for="">Số điện thoại: </label>
+                                    <input type="text" name="sdt">
+                                </div>
+                                <div class="edit-group-btn">
+                                    <button class="create btn">Thêm Bác Sĩ</button>
+                                    <button style="display:none;" class="update--save btn">Lưu</button>
+                                    <button class="out btn">Thoát</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+
+        <div class="footer__bottom">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="column__50-percent">
+                            <img src="./assets/img/logoHospital.png" alt="" class="column__50-percent-img">
+                            <div class="column__50-percent-title">
+                                <p class="title__text"><b>Địa Chỉ Văn Phòng: </b>Hoc Viện Công Nghệ Bưu Chính Viễn Thông
+                                </p>
+                                <p class="title__text">Mọi thắc mắc liên hệ
+                                    hotline: 069 69 69
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6">
+                        <div class="column__50-percent">
+                            <i class="column__50-percent-icon fas fa-handshake"></i>
+                            <div class="column__50-percent-title">
+                                <p class="title__text"><b>Chúng Tôi Cam Kết: </b>YouMed cung cấp dịch vụ y tế chất
+                                    lượng hàng đầu Việt Nam,được phục
+                                    vụ quý khách hàng là niềm vinh dự với chúng tôi</p>
+                                <p class="title__text title__text--parimary"> Lương Y như từ Mẫu!!!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <!-- <div class="border__right-title"> -->
+                    <div class="col-lg-3">
+                        <div class="column__text-inline">
+                            <a href="" class="column__text-inline-title">
+                                <span class="text__span">CHÍNH SÁCH BẢO MẬT</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="column__text-inline">
+                            <a href="" class="column__text-inline-title">
+                                <span class="text__span">QUY CHẾ HOẠT ĐỘNG</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="column__text-inline">
+                            <a href="" class="column__text-inline-title">
+                                <span class="text__span">CHĂM SÓC KHÁCH HÀNG</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3">
+                        <div class="column__text-inline">
+                            <a href="" class="column__text-inline-title">
+                                <span class="text__span">THỦ TỤC KHÁM CHỮA</span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- </div> -->
+
+                </div>
+                <p class="footer__text">&copy; 2020 Bản Quyền Thuộc Về <span class="title__text--parimary">YouMed</span>
+                </p>
+                <p class="footer__text">Giấy chứng nhận Đăng ký Kinh doanh số 6969696969 do Sở Kế hoạch
+                    và Đầu tư Thành phố Hà Nội cấp ngày <span class="title__text--parimary">08/07/2019</span></p>
+            </div>
+        </div>
+    </footer>
+    </div>
+    </div>
+    <script src="./JS/table_nurses.js"></script>
+    <script src="JS/other.js"></script>
+</body>
+
+</html>
