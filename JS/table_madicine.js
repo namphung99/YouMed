@@ -136,7 +136,6 @@ function handleCreateMedicines(){
     var createBtn = document.querySelector('.create');
     createBtn.onclick = function() {
 
-        clearForm();
 
         var ten = document.querySelector("input[name='ten']").value.trim();
         var donGia = document.querySelector("input[name='donGia']").value.trim();
@@ -148,7 +147,7 @@ function handleCreateMedicines(){
         };
         console.log("respon : ",formMedicine);
 
-        
+        clearForm();
 
         if(ten&&donGia){
             createMedicines(formMedicine,function(){
@@ -179,9 +178,12 @@ function handleDeleteMedicine(id) {
         .then(function(){
             var row = document.querySelector(".form-table__row--"+id);
             console.log(row);
-            if(row){
-                row.remove();
-                getMedicines(renderMedicines);
+            if (row) {
+                var result = confirm("Want to delete?");
+                if (result) {
+                    //Logic to delete the item
+                    row.remove();
+                }
             }
         });
 }

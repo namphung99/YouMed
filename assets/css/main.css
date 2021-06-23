@@ -708,6 +708,7 @@
 
 .app__container{
     margin-top: 160px;
+    height: 100vh;
 }
 
 .app__content{
@@ -906,7 +907,6 @@
 /* footer */
 
 .footer{
-    margin-top: 80px;
     background-color: var(--background-color);
 }
 

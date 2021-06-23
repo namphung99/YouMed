@@ -228,7 +228,11 @@ function handleDeleteDoctor(id) {
             var row = document.querySelector(".form-table__row--" + id);
             console.log(row);
             if (row) {
-                row.remove();
+                var result = confirm("Want to delete?");
+                if (result) {
+                    //Logic to delete the item
+                    row.remove();
+                }
             }
         })
 }

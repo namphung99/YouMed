@@ -222,8 +222,12 @@ function handleDeleteNurse(id) {
         .then(function(){
             var row = document.querySelector(".form-table__row--"+id);
             console.log(row);
-            if(row){
-                row.remove();
+            if (row) {
+                var result = confirm("Want to delete?");
+                if (result) {
+                    //Logic to delete the item
+                    row.remove();
+                }
             }
         })
 }
